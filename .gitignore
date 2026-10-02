@@ -1,0 +1,30 @@
+# Configuración local de los editores
+.vscode/
+.idea/
+
+# Archivos del sistema y temporales
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.tmp
+*.swp
+*.swo
+*~
+*.log
+
+# Credenciales y configuración privada local
+.env
+.env.*
+!.env.example
+
+# Dependencias de herramientas locales
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Paquetes de entrega y archivos comprimidos
+*.zip
+*.7z
+*.rar
