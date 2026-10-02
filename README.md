@@ -1,81 +1,69 @@
-# Nitro Gym — Poder Interno
+# Nitro Gym — Página para GitHub
 
-Página informativa de Nitro Gym, Chicxulub, Yucatán, con diseño glassmorphism y paleta roja, negra y gris. Incluye servicios, opiniones, horarios, ubicación y contacto por WhatsApp, teléfono e Instagram/Facebook.
+Sitio estático con paleta roja, negra y gris, diseño glassmorphism y carrusel
+horizontal de fotografías de las instalaciones. No requiere instalación ni compilación.
 
-La portada utiliza un logo PNG transparente y estático, con iluminación roja suave aplicada mediante CSS.
+## Actualizaciones incluidas
 
-## Tecnologías
+- Logo PNG transparente y estático con iluminación roja tenue.
+- Retiro de las dos tarjetas flotantes del inicio (aire acondicionado y opiniones).
+- Carrusel integrado entre Servicios y Opiniones, titulado “NUESTRAS INSTALACIONES”.
+- Solo las cuatro fotografías proporcionadas de Nitro Gym.
+- Recuadros en proporción 9:7 (450 × 350 como tamaño base), también en celular.
+- Las fotografías llenan el recuadro mediante `object-fit: cover`, sin deformarse.
+  El encuadre central recorta únicamente los bordes necesarios para esa proporción.
+  Los JPG originales se conservan sin cambiar sus píxeles ni colores.
+- Sin leyendas por fotografía, sin etiqueta de demo y sin botón superior de Instagram.
+- Fotos apiladas, desenfoque al cambiar, flechas, indicadores, teclado y gestos táctiles.
+- Servicios, opiniones, horarios, mapa, contacto y navegación anteriores conservados.
 
-- HTML5, CSS y JavaScript, sin dependencias de instalación.
-- Fuentes e imágenes locales incluidas.
-- Google Maps integrado mediante iframe.
+## Revisar y publicar
+
+1. Extrae el ZIP y abre `index.html` para revisar el sitio.
+2. Copia el contenido del ZIP dentro de tu carpeta existente del repositorio,
+   sustituyendo los archivos coincidentes y manteniendo tus ajustes de alojamiento.
+3. Ejecuta desde la terminal de esa carpeta:
+
+```powershell
+git status
+git add index.html css js img README.md LEEME.txt
+git commit -m "Integrar carrusel de instalaciones y actualizar inicio"
+git push origin main
+```
+
+Este paquete contiene los archivos para publicar; no sube cambios por sí mismo.
+La página principal queda en la raíz. Se incluye `.nojekyll` para alojamiento estático.
+
+## Ampliar el carrusel de 4 a 20 fotos
+
+1. Guarda las nuevas fotografías en `img/instalaciones/`, con nombres como
+   `instalacion-05.jpg`, `instalacion-06.jpg`, hasta `instalacion-20.jpg`.
+2. Dentro de `index.html`, localiza `id="instagramTrack"`.
+3. Añade por cada fotografía un botón como este dentro de ese mismo contenedor:
+
+```html
+<button class="ig-card" type="button" aria-label="Ver fotografía de las instalaciones">
+  <img src="img/instalaciones/instalacion-05.jpg"
+       alt="Descripción del área fotografiada"
+       width="1170" height="863" loading="lazy" decoding="async"/>
+</button>
+```
+
+Ajusta `width` y `height` a las dimensiones reales del archivo. La proporción
+visual 9:7 la fija el CSS. El número de fotos, indicadores, contador y navegación
+se calculan automáticamente. El carrusel muestra la imagen central y sus vecinas;
+las demás se mantienen fuera de la vista hasta que les corresponda aparecer.
+No añadas tarjetas vacías: cada botón debe contener una fotografía existente.
 
 ## Archivos principales
 
-| Archivo o carpeta | Contenido |
-| --- | --- |
-| `index.html` | Página principal. Debe quedar en la raíz del repositorio. |
-| `css/styles.css` | Diseño, iluminación del logo y adaptación a pantallas. |
-| `js/script.js` | Menú, navegación y transiciones. |
-| `img/` | Emblemas originales y logo transparente. |
-| `fonts/` | Tipografías locales, originales y su licencia. |
-| `.gitignore` | Exclusión de archivos temporales y configuración local. |
-| `.gitattributes` | Tratamiento de archivos de texto y binarios en Git. |
-| `.nojekyll` | Archivo para servir el contenido estático mediante GitHub Pages. |
+- `index.html`: sitio completo.
+- `css/styles.css` y `js/script.js`: diseño y navegación del sitio.
+- `css/instalaciones.css` y `js/instalaciones.js`: carrusel de instalaciones.
+- `img/instalaciones/`: las cuatro fotografías incluidas.
+- `img/`: logos anteriores.
+- `fonts/`: fuentes locales, originales y licencia en `LICENSE.txt`.
 
-## Revisar la página en tu computadora
-
-Extrae el ZIP y abre `index.html` en tu navegador. Mantén las carpetas junto a ese archivo. Las fuentes y el logo funcionan sin descargarse de otros sitios; Google Maps y los servicios externos requieren Internet.
-
-También puedes iniciar un servidor local desde esta carpeta si tienes Python instalado:
-
-```bash
-python -m http.server 8000
-```
-
-Después abre `http://localhost:8000`.
-
-## Subir a GitHub desde el navegador
-
-1. Extrae el ZIP. Sube sus archivos y carpetas, no el ZIP comprimido.
-2. Abre tu repositorio de GitHub.
-3. Selecciona **Add file → Upload files**. En un repositorio vacío, utiliza la opción de subir archivos existentes.
-4. Arrastra el contenido de la carpeta extraída. `index.html`, `README.md`, `css`, `js`, `img` y `fonts` deben quedar en la raíz del repositorio, sin otra carpeta contenedora.
-5. Confirma la carga mediante **Commit changes**. Si estás actualizando un repositorio existente, puedes guardar los cambios en una nueva rama y revisarlos mediante una pull request.
-
-Para actualizar un repositorio existente, sustituye los archivos de esta página en sus mismas rutas y conserva los ajustes de alojamiento que ya tengas, como `CNAME` o configuraciones de despliegue. Los archivos que empiezan con punto pueden estar ocultos en tu explorador; puedes subirlos mediante Git o GitHub Desktop si no aparecen en la selección.
-
-## Subir con Git a un repositorio nuevo y vacío
-
-Ejecuta estos comandos dentro de la carpeta extraída. Sustituye `URL_DE_TU_REPOSITORIO` por la URL real de tu repositorio:
-
-```bash
-git init -b main
-git add .
-git commit -m "Preparar página de Nitro Gym para GitHub"
-git remote add origin URL_DE_TU_REPOSITORIO
-git push -u origin main
-```
-
-Si el repositorio ya tiene historial, trabaja dentro de su copia clonada y copia allí los archivos de la página; utiliza su rama y remoto actuales.
-
-## Publicación opcional con GitHub Pages
-
-Subir el proyecto y publicarlo son pasos separados. Cuando quieras publicarlo mediante GitHub Pages:
-
-1. Abre **Settings → Pages** en el repositorio.
-2. En **Build and deployment**, selecciona **Deploy from a branch**.
-3. Selecciona la rama que contiene estos archivos; en un repositorio nuevo creado con los comandos anteriores es `main`.
-4. Selecciona **/ (root)** y guarda.
-5. GitHub mostrará la dirección de la página cuando termine el despliegue.
-
-No se necesita un proceso de compilación ni instalar paquetes. La disponibilidad de Pages depende de la configuración y los permisos del repositorio.
-
-## Licencias de las fuentes
-
-La información de las fuentes Nimbus se conserva en `fonts/LICENSE.txt`, junto con sus archivos originales. Este paquete no asigna una nueva licencia al logotipo ni al contenido de Nitro Gym.
-
-## Documentación oficial
-
-- [Subir archivos a un repositorio](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)
-- [Configurar la publicación de GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+Sin JavaScript, las fotografías siguen disponibles en una fila deslizable.
+La preferencia de movimiento reducido desactiva las animaciones.
+Google Maps, WhatsApp y los enlaces sociales necesitan conexión a Internet.

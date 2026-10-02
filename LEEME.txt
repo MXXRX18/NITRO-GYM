@@ -1,18 +1,10 @@
-NITRO GYM — REDISEÑO GLASSMORPHISM
+NITRO GYM — INSTALACIONES
 
-1. Extrae todos los archivos del ZIP en una misma carpeta.
-2. Abre index.html en tu navegador para revisar la página.
-3. Para publicarla en tu alojamiento actual, sube index.html y las carpetas
-   css, js, img y fonts, respetando sus nombres y estructura.
+Extrae el ZIP y abre index.html. Este paquete reúne la página actualizada y el
+carrusel de cuatro fotos reales, con encuadre 9:7, sin leyendas ni etiqueta de demo.
 
-Se conserva la paleta roja, negra y gris, los emblemas originales, los ocho
-servicios, las seis opiniones, horarios, dirección, teléfono y redes sociales.
-El enlace de indicaciones del mapa utiliza la búsqueda del mismo gimnasio.
-La interfaz se adapta a celular, tablet y escritorio.
+Para publicarlo, copia todo el contenido en tu repositorio existente y utiliza
+los comandos del README.md. No copies únicamente index.html: el carrusel utiliza
+css/instalaciones.css, js/instalaciones.js e img/instalaciones/.
 
-Las tipografías y emblemas están incluidos y no requieren descargas externas.
-Google Maps, WhatsApp y redes sociales necesitan conexión a Internet.
-Las licencias y los originales de las fuentes se incluyen en fonts.
-
-Actualización de portada: logo PNG estático y transparente, sin el recuadro
-negro anterior, con iluminación roja tenue aplicada desde CSS.
+Conserva la estructura de carpetas y los ajustes de alojamiento que ya tengas.
